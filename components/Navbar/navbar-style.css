@@ -1,0 +1,16 @@
+.main-navbar {
+  background-color: black;
+  height: 89px;
+  display: grid;
+  text-align: center;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  align-content: center;
+  padding: 0px 22px;
+  margin: 10px auto 0px;
+}
+
+.container {
+  margin: 0 auto;
+}
+
