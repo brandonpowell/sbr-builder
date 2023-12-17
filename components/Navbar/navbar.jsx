@@ -6,68 +6,78 @@
 "use client"
 
 import * as React from "react";
-//import Cart from "../eCommerces/Notifications/Cart/cart";
 import "../Navbar/navbar-style.css";
 
-function Image({ src, alt }) {
-  // eslint-disable-next-line @next/next/no-img-element
-  return <img 
-      src={src} 
-      alt={alt} 
-    />;
-}
-
-const Nav = ({ navItems, imageData, NavIcons, image }) => {
+const Nav = ({ UploadDesktopLogo, UploadMobileLogo, NavColumns, NavIcons }) => {
 
   return (
-  <div className="container">
-    <div className="wrapper">
-        <div className="main-navbar">
-        {imageData && imageData.length > 0 ? (
-          <div className="Nav-Logo">
-            {imageData && (
-              <a href="/">
-                <Image
-                  src={image.src || imageData.src }
-                  alt={imageData.allowedFileTypes}
-                />
-              </a>
+  <div className="nav-container parent">
+        <div className="navbar" id="main-navbar">
+            {UploadDesktopLogo ? (
+              <div className="Nav-Logo desktop-view">
+                  <a href="/">
+                    <img
+                      src={UploadDesktopLogo}
+                      alt="Main Logo"
+                    />
+                  </a>
+              </div>
+              ) : (
+              <p>No Decktop Logo Available</p>
             )}
-          </div>
-          ) : (
-          <p>No Nav Logo Available</p>
-        )}
-        
-        {navItems && navItems.length > 0 ? (
-          <div className="Navbar_Listing">
-            {navItems && navItems.map((item, index) => (
-              <a key={index} href={item.link}>
-                {item.text}
-              </a>
-            ))}
-          </div>
-          ) : (
-          <p>No Nav Listing Available</p>
-        )}
+            
+            <div className="navbar" id="mobile-logo">
+              {UploadMobileLogo ? (
+                <div className="Nav-Logo">
+                    <a href="/">
+                      <img
+                        src={UploadMobileLogo}
+                        alt="Main Logo"
+                      />
+                    </a>
+                </div>
+                ) : (
+                <p>No Mobile Logo Available</p>
+              )}
+            </div>
 
-          <div className="navbar-last">
-              {NavIcons && NavIcons.length > 0 ? (//There no icon it will be 0 but add no icons
+            <div className="navbar" id="hamburger-menu">
+              &#9776;
+            </div>
+        </div>
+
+        {NavColumns && NavColumns.length > 0 ? (
+            <div className="navbar two" id="navbar-middle">
+                {NavColumns.map((navlist, index) => (
+                  <a key={index} href={navlist.NavUrl}>
+                    {navlist.NavItem}
+                  </a>
+                ))}
+            </div>
+              ) : (
+            <p>No Nav Listing Available</p>
+          )}
+
+          <div className="navbar three" id="last-navbar">
+              {NavIcons && NavIcons.length > 0 ? (
                   <ul>
-                    {NavIcons.map((icon, index) => (
+                    {NavIcons.map((item, icon, index) => (
                       <li key={index}>
-                        <img src={icon.Icon} alt="Icon" />
-                          <a href={icon.IconUrl}>{/* Additional link for the icon */}</a>
+                        {NavIcons ? (
+                          <a href={item.IconUrl}>{item.PageTitle}</a>
+                            ) : (
+                          <a href={icon.IconUrl}>
+                            <img src={icon.Icon} alt="Icon" />
+                          </a>
+                        )}
                       </li>
                     ))}
                   </ul>
                   ) : (
                 <p>No Icons Available</p>
               )}
-            {/* <Cart/> */}
           </div>
-            {/* This is help page  */}
-      </div>
-    </div>
+          {/* This is help page  */}
   </div>
   );
 }

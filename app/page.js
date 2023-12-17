@@ -2,10 +2,10 @@
 
 import React, { useEffect, useState } from "react";
 import { BuilderComponent, builder, useIsPreviewing } from "@builder.io/react";
-import Navbar from "../components/Navbar/navbar";
 import FourOhFour from "./404";
+import "../builder-registry";
 
-// Put your API key here
+// Initialize Builder
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
 // set whether you're using the Visual Editor,
@@ -54,7 +54,6 @@ export default function CatchAllRoute() {
   return (
     <>
       {/* Render the Builder page */}
-      <Navbar />
       <BuilderComponent model="page" content={content} />
     </>
   );

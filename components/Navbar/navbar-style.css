@@ -1,16 +1,158 @@
-.main-navbar {
-  background-color: black;
-  height: 89px;
+body {
+  background-color: transparent !important;
+}
+
+.css-h47494 .main-navbar {
+  background-color: white;
+}
+.nav-container{
   display: grid;
+  background-color: #F2EDDC;
+  border-bottom: 1px solid #0000001a;
   text-align: center;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 2fr 2fr;
   align-items: center;
   align-content: center;
   padding: 0px 22px;
-  margin: 10px auto 0px;
 }
 
+#main-navbar > :first-child {
+  grid-column: span 1; /* Set the first column to span 1 grid column */
+}
+
+#navbar-middle {
+  display: flex;
+  gap: 19px;
+}
+
+.css-96q1si.builder-block {
+  margin-top: 0px !important;
+}
+
+#navbar-last ul {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+#navbar-last li {
+  position: relative;
+  padding-left: 20px; /* Adjust as needed */
+  margin-bottom: 8px; /* Adjust as needed */
+}
+
+#navbar-last li:not(:first-child)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px; /* Adjust as needed */
+  height: 35px; /* Adjust as needed */
+  background-color: #000; /* Adjust as needed */
+}
 .container {
   margin: 0 auto;
 }
 
+.navbar {
+  text-align: center;
+}
+
+#main-navbar {
+  grid-column: span 1;
+}
+
+#last-navbar {
+  display: block;
+}
+
+#last-navbar ul {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+}
+
+#hamburger-menu {
+  display: none;
+  font-size: 3rem;
+  cursor: pointer;
+}
+
+#mobile-logo {
+  display: none;
+}
+
+@media only screen and (max-width: 768px) {
+  .nav-container {
+    display: block;
+    padding: inherit;
+  }
+
+  .main-navbar {
+    display: none;
+  }
+
+  .Nav-Logo {
+    padding: 0.6em;
+  }
+  
+  #main-navbar {
+    grid-column: span 3 !important;
+  }
+
+  #navbar-middle {
+    display: grid;
+  }
+
+  #navbar-middle a {
+    padding: 2rem;
+    font-size: 15pt;
+    border-bottom: 2px solid #cfcfcf;
+  }
+
+  .navbar #navbar-middle {
+      padding: 0px!important;
+  }
+
+  #mobile-logo {
+    display: block;
+  }
+  
+
+  #last-navbar {
+    display: flex;
+    height: 12vh;
+    background-color: black;
+    justify-content: center;
+  }
+
+  #las-navbar ul {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    flex-wrap: nowrap;
+    flex-direction: row;
+  }
+
+  .navbar:not(#navbar-middle) {
+    display: flex;
+    padding: 0.3em;
+    justify-content: space-between;
+  }
+
+  #navbar-middle a {
+    display: none;
+  }
+
+  #hamburger-menu {
+    display: block;
+  }
+
+  .desktop-view {
+    display: none !important;
+  }
+
+}
